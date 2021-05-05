@@ -23,4 +23,4 @@ This will create `conbot` executable and place it on your `$PATH` as well as ins
 
 ## Extending
 
-You can eiher fork and build directly, or extend your applciations own `pom.xml` file to depend on `com.simonski.conbot/conbot:1.0`.
+You can eiher fork and build directly, or extend your applications own `pom.xml` file to depend on `conbot/conbot:1.0`.
