@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demojob1-default-pool
+spec:
+  template:
+    spec:
+      containers:
+      - name: conbot
+        image: conbot/conbot:latest
+        imagePullPolicy: Always
+        args:
+          - "schema"
+          - "-cols"
+          - "10"
+      restartPolicy: OnFailure

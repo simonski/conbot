@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demojob1-workerpool
+  labels:
+    poolname: workerpool
+spec:
+  template:
+    metadata:
+      labels:
+        poolname: workerpool
+    spec:
+      containers:
+      - name: conbot
+        image: conbot/conbot:latest
+        imagePullPolicy: Always
+        args:
+          - "schema"
+          - "-cols"
+          - "10"
+      nodeSelector:
+        poolname: workerpool
+      restartPolicy: OnFailure

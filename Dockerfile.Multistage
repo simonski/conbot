@@ -1,0 +1,18 @@
+# the first stage of our build will use a maven 3.6.1 parent image
+FROM maven:3-openjdk-11 AS MAVEN_BUILD
+
+# copy the pom and src code to the container
+COPY . /code
+
+# package our application code
+RUN cd code &&  mvn clean package
+
+# the second stage of our build will use open jdk 8 on alpine 3.9
+FROM adoptopenjdk/openjdk11:alpine-jre
+
+# copy only the artifacts we need from the first stage and discard the rest
+COPY --from=MAVEN_BUILD /code/conbot /conbot
+RUN chmod +x /conbot
+
+# set the startup command to execute the jar
+CMD ["/conbot"]
