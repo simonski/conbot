@@ -1,4 +1,4 @@
-# DEVELOPER GUIDE
+# INSTALLATION GUIDE
 
 There are a number of ways to install conbot
 

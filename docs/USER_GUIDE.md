@@ -95,3 +95,5 @@ This will download, transform, upload.
 make docker
 make push
 ```
+
+Read the [KUBERNETES.md](KUBERNETES.md) docs next.
