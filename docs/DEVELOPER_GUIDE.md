@@ -15,11 +15,12 @@ This document is for people who want to extend `conbot`.
     cd $CODE
     git clone https://github.com/simonski/conbot.git 
     cd conbot
-    mvn clean install
     make build
     export PATH=$PATH:.
 
-This will create `conbot` executable and place it on your `$PATH` as well as install into your `~/.m2/repository`.
+This will create a `conbot` executable and place it on your `$PATH` as well as install into your `~/.m2/repository`.  
+
+> **Note** the executable is really just a jarfile with a shellscript at the start.
 
 ## Extending
 

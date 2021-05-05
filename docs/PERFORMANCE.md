@@ -122,3 +122,11 @@ Will convert the source gzip file `10m.csv.gz` using the `CSV` implementation on
 - extend `conbot.Consumer`
 - in `conbt.Converter:buildConsumers` add your extension type
 - rebuild `make build`
+
+
+
+
+
+
+
+
