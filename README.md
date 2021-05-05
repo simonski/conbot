@@ -11,6 +11,10 @@ For example
 
 It is built to perform the "heavy lifting" of common tasks a data engineer may conduct, to be simple, small and as fast as possible.  It can be used as terminal tool on a daily basis through to running horizontally in k8s clusters for parallel processing.
 
+## Install
+
+Installation instructions are in the [INSTALLATION.md](docs/INSTALLATION.md)
+
 ## Usage
 
 Installation and usage is covered in the [USER_GUIDE.md](docs/USER_GUIDE.md)
