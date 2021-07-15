@@ -15,11 +15,11 @@ The command `conbot` is now available via a temporary docker container.
 
 ## Build from source
 
-Alternatively you can build from source
+Alternatively you can build from source.  Assuming `$CODE` is the path you clone code to
 
     cd $CODE
-    git clone https://github.com/simonski/conbot.git 
-    cd conbot
+    git clone https://github.com/simonski/conbotj.git 
+    cd conbotj
     make build
     export PATH=$PATH:.
 

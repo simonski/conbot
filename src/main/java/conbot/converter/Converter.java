@@ -77,6 +77,8 @@ public class Converter {
 		CLI.out(" -rowcount    N             number of rows in source data (for ETA reporting)");
 		CLI.out(" -report      N             report every N milliseconds on progress (default 1000)");
 		CLI.out(" -maxq        N             maximum allowed queue size before the reader will pause");
+		CLI.out(" -skipHeader                if present, the first row will be skipped.");
+
 		CLI.out("");
 	}
 
@@ -90,6 +92,8 @@ public class Converter {
 		context = new Context();
 		report = new Report(!quiet);
 		context.report = report;
+		context.schemaFile = cli.getFileOrDefault("-schema", null);
+		context.skipHeader = cli.contains("-skipHeader");
 
 		this.source = cli.getStringOrDie("-source");
 		this.target = cli.getStringOrDie("-target");

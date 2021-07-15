@@ -13,8 +13,8 @@ This document is for people who want to extend `conbot`.
 ## Get the source
 
     cd $CODE
-    git clone https://github.com/simonski/conbot.git 
-    cd conbot
+    git clone https://github.com/simonski/conbotj.git 
+    cd conbotj
     make build
     export PATH=$PATH:.
 

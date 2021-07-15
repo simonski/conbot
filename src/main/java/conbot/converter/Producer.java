@@ -54,6 +54,11 @@ public class Producer implements Runnable {
 
 			int index = 0;
 			row = 0;
+
+			if (context.skipHeader) {
+				reader.readLine();
+			}
+
 			String line = reader.readLine();
 			Consumer consumer = null;
 			long startTime = System.currentTimeMillis();
