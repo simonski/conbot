@@ -14,8 +14,9 @@ public class Context {
 
 	public ConcurrentHashMap<String, AtomicLong> map;
 	public Report report;
-	
 	public File sourceFile;
+	public File schemaFile;
+	public boolean skipHeader = false;	// will ingnore first row when true
 
 	public Context() {
 		map = new ConcurrentHashMap<String, AtomicLong>();

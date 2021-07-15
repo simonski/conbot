@@ -13,51 +13,52 @@ Here we will create some sample data to simulate conversion.
 First, create a schema file that is used to generate data
 
 ```bash
-mkdir -p data/source
-./conbot schema -cols 80 > data/schema.csv
+mkdir -p demo
+./conbot schema -cols 80 > demo/schema.csv
 ```
 
-This has created a file, `data/schema.csv` that describes an 80-column dataset.
+This has created a file, `demo/schema.csv` that describes an 80-column dataset.
 
 Now we can create some data using this schema. Let's  create 1m rows gzipped from this schema
 
 ```bash
-./conbot data -schema schema.csv -rows 1000000 | gzip - > data/1m.csv.gz
+./conbot data -schema demo/schema.csv -rows 1000000 | gzip - > demo/1m.csv.gz
 ```
 
-Now create 10m row file from this. 
+Now create 10m row file from this.
 ```bash
-for i in `seq 1 10`; do cat data/source/1m.csv.gz >> data/source/data.csv.gz; done
+for i in `seq 1 10`; do cat demo/1m.csv.gz >> demo/10m.csv.gz; done
 ```
 
-This file, `data.csv.gz` is our reference file.
+This file, `demo/10m.csv.gz` is our reference file. It should be aroudn 1.2GB.
 
 ## 2. Convert the file
 
-Now this file represents a legacy file compression format (gzip), that is nonsplittable.  Let's perform a conversion using 1, 5 and all threads
+This demo file represents a legacy file compression format (gzip), that is nonsplittable.  Let's perform a conversion using 1, 5 and all threads
 
 ```bash
-./conbot convert -source data/source/data.csv.gz -target data/output -consumer csv -threads 1
+./conbot convert -source demo/10m.csv.gz -target demo/output -consumer csv -threads 1
 ```
 (191,000/sec).
 
+
 ```bash
-./conbot convert -source data/source/data.csv.gz -target data/output -consumer csv -threads 5
+./conbot convert -source demo/10m.csv.gz -target demo/output -consumer csv -threads 5
 ```
 (450,000/sec).
 
 ```bash
-./conbot convert -source data/source/data.csv.gz -target data/output -consumer csv 
+./conbot convert -source demo/10m.csv.gz -target demo/output -consumer csv 
 ```
 (383,000/sec).
 
 This will print out progress to STDOUT per second until it completes, finishing with a summary.  The number of rows/second processed is the key metric here.  
 
-Inspect the `data/output` folder to see `output-n.csv` file(s) and a `report.json` file.
+Inspect the `demo/output` folder to see `output-n.csv` file(s) and a `report.json` file.
 
 ## Summary
 
-We can see splitting the file into a 1 * Producer->N * Consumer arrangement increases throughput, achieving **vertical** scaling.
+We can see splitting the file into a 1 * Producer->N * Consumer arrangement increases throughput, achieving **vertical** scaling.   You should see on your own computer the performance will vary; too many threads can slow the process down.  
 
 ## Docker
 
