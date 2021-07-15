@@ -32,7 +32,7 @@ coverage:
 docker: build
 	docker build -f Dockerfile -t conbot .
 
-docker-all:
+docker-multistage:
 	docker build -f Dockerfile.Multistage -t conbot .
 
 run:
