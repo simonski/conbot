@@ -28,12 +28,17 @@ public class ConsumerCSV extends Consumer {
 		bwriter.write("" + record.rowNumber);
 		bwriter.write(COMMA);
 		String[] splits = record.line.split(COMMA, -1);
-		for (int index=0; index<splits.length; index++) {
+		bwriter.write(splits[0]);
+		for (int index=1; index<splits.length; index++) {
+			bwriter.write(COMMA);
 			bwriter.write(splits[index]);
-			if (index+1 < splits.length) {
-				bwriter.write(COMMA);
-			}
 		}
+		// for (int index=0; index<splits.length; index++) {
+		// 	bwriter.write(splits[index]);
+		// 	if (index+1 < splits.length) {
+		// 		bwriter.write(COMMA);
+		// 	}
+		// }
 		bwriter.write(NEWLINE);
 	}
 

@@ -44,4 +44,18 @@ public class GCS {
 	    return file;
 	}
 
+	public static File copyToGCSMultipart(File file, String path) throws Exception {
+		String newPath = path + "/" + file.getName();
+		String[] bucketAndKey = CloudStorage.getBucketAndKeyFromPath(newPath);
+		String bucket = bucketAndKey[0];
+		String key = bucketAndKey[1];
+		key = key.substring(1);
+
+		Storage storage = StorageOptions.getDefaultInstance().getService();
+	    BlobId blobId = BlobId.of(bucket, key);
+	    BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
+	    storage.create(blobInfo, Files.readAllBytes(Paths.get(file.getPath())));
+	    return file;
+	}
+
 }

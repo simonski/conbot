@@ -7,9 +7,11 @@ For example
 - file format conversion (especially gzip)
 - schema detection
 - data generation
-- transfer and transform between clouds and technologies
+- transfer and transform
 
-It is built to perform the "heavy lifting" of common tasks a data engineer may conduct, to be simple, small and as fast as possible.  It can be used as terminal tool on a daily basis through to running horizontally in k8s clusters for parallel processing.
+Conbot is built to perform the "heavy lifting" of common tasks a data engineer may conduct.  
+
+Conbot tries to be simple, small and as fast as possible.  It can be used as terminal tool on a daily basis through to running horizontally in k8s clusters for parallel processing.
 
 ## Install
 
@@ -17,9 +19,13 @@ Installation instructions are in the [INSTALLATION.md](docs/INSTALLATION.md)
 
 ## Usage
 
-Installation and usage is covered in the [USER_GUIDE.md](docs/USER_GUIDE.md)
+Refer to the [USER_GUIDE.md](docs/USER_GUIDE.md) for examples on the problems Conbot will solve for you.
 
 ## Extending Conbot
 
 Conbot is open-source! - you are very welcome to extend it or participate as a commiter.  Read the [DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md) for more information.
+
+## Go
+
+Conbot is also available in go, if that is your thing.  In that case, please refer to [https://github.com/simonski/conbot](https://github.com/simonski/conbot).
 

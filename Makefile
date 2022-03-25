@@ -41,3 +41,7 @@ run:
 push: 
 	docker tag conbot conbot/conbot:latest
 	docker push conbot/conbot:latest
+
+brew: 
+	docker tag conbot conbot/conbot:latest
+	docker push conbot/conbot:latest

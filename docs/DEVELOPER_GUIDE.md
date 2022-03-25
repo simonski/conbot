@@ -7,7 +7,7 @@ This document is for people who want to extend `conbot`.
 - git
 - Make
 - maven3
-- jdk 11
+- jdk 8
 - docker
 
 ## Get the source
@@ -20,7 +20,10 @@ This document is for people who want to extend `conbot`.
 
 This will create a `conbot` executable and place it on your `$PATH` as well as install into your `~/.m2/repository`.  
 
-> **Note** the executable is really just a jarfile with a shellscript at the start.
+> **Note** the executable is really just a jarfile with a shellscript at the start. You can always run conbot directly with
+>
+> java -jar conbotj.jar \<OPTIONS\>
+>
 
 ## Extending
 

@@ -66,7 +66,6 @@ public class Producer implements Runnable {
 				consumer = consumers_array[index];
 				Record r = new Record(line,row);
 				consumer.queue.add(r);
-				line = reader.readLine();
 				index += 1;
 				index = index % consumers_array.length;
 				row += 1;
@@ -86,6 +85,7 @@ public class Producer implements Runnable {
 						e.printStackTrace();
 					}
 				}
+				line = reader.readLine();
 
 			}
 			context.report.metric("rows", row);
